@@ -20,7 +20,7 @@ public class StatistiqueTests {
         Voiture tonobil = new Voiture("ferari",500);
         tonobil.setId(55);
 
-        statistiqueImpl.add(tonobil);
+        statistiqueImpl.ajouter(tonobil);
         Echantillon finale = statistiqueImpl.prixMoyen();
         when(finale.getNombreDeVoitures()).thenReturn(1);
         when(finale.getPrixMoyen()).thenReturn(500);
