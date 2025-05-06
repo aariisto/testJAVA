@@ -15,7 +15,7 @@ public class StatistiqueTests {
     StatistiqueImpl statistiqueImpl;
 
     @Test
-    public void testCalculeST {
+    public void testCalculeST() {
 
         Voiture tonobil = new Voiture("ferari",500);
         tonobil.setId(55);
