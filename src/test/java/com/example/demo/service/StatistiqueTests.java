@@ -14,4 +14,19 @@ public class StatistiqueTests {
     @MockBean
     StatistiqueImpl statistiqueImpl;
 
+    @Test
+    public void testCalculeST {
+
+        Voiture tonobil = new Voiture("ferari",500);
+        tonobil.setId(55);
+
+        statistiqueImpl.add(tonobil);
+        Echantillon finale = statistiqueImpl.prixMoyen();
+        when(finale.getNombreDeVoitures()).thenReturn(1);
+        when(finale.getPrixMoyen()).thenReturn(500);
+
+        // verify(statistiqueImpl).calculerStatistique();
+        // assertEquals(expectedStat, result);
+    }
+
 }
