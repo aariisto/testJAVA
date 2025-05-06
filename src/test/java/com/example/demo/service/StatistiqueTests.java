@@ -14,6 +14,7 @@ public class StatistiqueTests {
 
 @Test
 public void testCalculePrixMoyen() {
+    StatistiqueImpl statistiqueImpl;
     // Create mock objects for Voiture
     Voiture voiture1 = mock(Voiture.class);
     Voiture voiture2 = mock(Voiture.class);
