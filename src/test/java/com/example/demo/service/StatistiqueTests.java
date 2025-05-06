@@ -1,14 +1,3 @@
-package com.example.demo.service;
-
-import com.example.demo.data.Voiture;
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-
-
-import static org.mockito.Mockito.*;
-
-
 @SpringBootTest
 public class StatistiqueTests {
 
@@ -17,7 +6,7 @@ public class StatistiqueTests {
 
     @Test
     public void testCalculeST() {
-    // Create a mock for Echantillon
+        // Create a mock for Echantillon
         Echantillon echantillonMock = mock(Echantillon.class);
 
         // Set up the mock behavior
@@ -30,10 +19,16 @@ public class StatistiqueTests {
         // Call the method to test
         Echantillon finale = statistiqueImpl.prixMoyen();
 
+        // Trigger the mocked methods explicitly
+        int nombreDeVoitures = finale.getNombreDeVoitures();
+        int prixMoyen = finale.getPrixMoyen();
+
         // Verify the interaction with the mock
         verify(echantillonMock).getNombreDeVoitures();
         verify(echantillonMock).getPrixMoyen();
 
-}
-
+        // Additional assertions (optional)
+        assertEquals(1, nombreDeVoitures);
+        assertEquals(500, prixMoyen);
+    }
 }
