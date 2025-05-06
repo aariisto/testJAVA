@@ -30,7 +30,7 @@ public void testCalculePrixMoyen() {
     Echantillon mockEchantillon = mock(Echantillon.class);
     when(statistiqueImpl.prixMoyen()).thenReturn(mockEchantillon);
     when(mockEchantillon.getNombreDeVoitures()).thenReturn(2);
-    when(mockEchantillon.getPrixMoyen()).thenReturn(750);
+    when(mockEchantillon.getPrixMoyen()).thenReturn(500);
 
     // Add voitures to the mocked StatistiqueImpl
     statistiqueImpl.ajouter(voiture1);
