@@ -11,7 +11,16 @@ public class VoitureTest {
 
     @Test
     void creerVoiture(){
-        assertEquals(1,1);
+        Voiture tonobil = new Voiture("ferari",500);
+        tonobil.setId(2);
+        assertEquals(tonobil.getId(), 2);
+        assertEquals(tonobil.getMarque(), "ferari");
+        assertEquals(tonobil.getPrix(), 500 );
+        tonobil.setPrix(600);
+        tonobil.setMarque("zz");
+        assertEquals(tonobil.getMarque(), "zz");
+        assertEquals(tonobil.getPrix(), 600 );
+
     }
 
 }
