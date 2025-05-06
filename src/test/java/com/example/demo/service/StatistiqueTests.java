@@ -23,7 +23,7 @@ public void testCalculePrixMoyen() {
     Voiture voiture2 = mock(Voiture.class);
 
     // Mock the behavior of 'getPrix()' for the voiture objects
-    when(voiture1.getPrix()).thenReturn(500);
+    when(voiture1.getPrix()).thenReturn(5);
     when(voiture2.getPrix()).thenReturn(1000);
 
     // Mock the behavior of 'ajouter()' and 'prixMoyen()' for StatistiqueImpl
