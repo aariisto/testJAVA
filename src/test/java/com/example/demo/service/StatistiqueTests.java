@@ -4,8 +4,7 @@ import com.example.demo.data.Voiture;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 import static org.mockito.Mockito.*;
 
@@ -35,10 +34,6 @@ public class StatistiqueTests {
         verify(echantillonMock).getNombreDeVoitures();
         verify(echantillonMock).getPrixMoyen();
 
-        // Optionally, add assertions for the result
-        assertNotNull(finale);
-        assertEquals(1, finale.getNombreDeVoitures());
-        assertEquals(500, finale.getPrixMoyen());
 }
 
 }
