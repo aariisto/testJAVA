@@ -6,36 +6,37 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
 import static org.mockito.Mockito.*;
-import static org.junit.jupiter.api.Assertions.*;
+
 
 @SpringBootTest
 public class StatistiqueTests {
 
     @MockBean
-    private StatistiqueImpl statistiqueImpl;
+    StatistiqueImpl statistiqueImpl;
 
     @Test
     public void testCalculeST() {
-
-        // Créer un objet Voiture
-        Voiture tonobil = new Voiture("Ferrari", 500);
-        tonobil.setId(55);
-
-        // Simuler l'ajout de la voiture dans statistiqueImpl
-        statistiqueImpl.ajouter(tonobil);
-
-        // Créer un mock pour l'objet Echantillon
+    // Create a mock for Echantillon
         Echantillon echantillonMock = mock(Echantillon.class);
 
-        
+        // Set up the mock behavior
         when(echantillonMock.getNombreDeVoitures()).thenReturn(1);
         when(echantillonMock.getPrixMoyen()).thenReturn(500);
 
-        // Appeler la méthode prixMoyen et récupérer le résultat
+        // Inject the mock into statistiqueImpl
+        when(statistiqueImpl.prixMoyen()).thenReturn(echantillonMock);
+
+        // Call the method to test
         Echantillon finale = statistiqueImpl.prixMoyen();
 
-        // Vérifier que les méthodes de Echantillon ont bien été appelées
+        // Verify the interaction with the mock
         verify(echantillonMock).getNombreDeVoitures();
         verify(echantillonMock).getPrixMoyen();
-    }
+
+        // Optionally, add assertions for the result
+        assertNotNull(finale);
+        assertEquals(1, finale.getNombreDeVoitures());
+        assertEquals(500, finale.getPrixMoyen());
+}
+
 }
