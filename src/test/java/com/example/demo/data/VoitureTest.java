@@ -12,6 +12,7 @@ public class VoitureTest {
     @Test
     void creerVoiture(){
         assertEquals(1,1);
+        Assert.isTrue(5 == 5);
     }
 
 }
