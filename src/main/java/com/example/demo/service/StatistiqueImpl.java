@@ -2,8 +2,6 @@ package com.example.demo.service;
 
 import com.example.demo.data.Voiture;
 import org.springframework.stereotype.Service;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 import java.util.Iterator;
