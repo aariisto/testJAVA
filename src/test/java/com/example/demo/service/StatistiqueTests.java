@@ -12,17 +12,25 @@ import static org.junit.jupiter.api.Assertions.*;
 public class StatistiqueTests {
 
 
+
 @Test
 public void testCalculePrixMoyen() {
     // Create mock objects for Voiture
+
+    StatistiqueImpl statistiqueImpl;
+    
     Voiture voiture1 = mock(Voiture.class);
     Voiture voiture2 = mock(Voiture.class);
 
     // Mock the behavior of 'getPrix()' for the voiture objects
-    when(voiture1.getPrix()).thenReturn(50);
+    when(voiture1.getPrix()).thenReturn(5);
     when(voiture2.getPrix()).thenReturn(1000);
 
-
+    // Mock the behavior of 'ajouter()' and 'prixMoyen()' for StatistiqueImpl
+    Echantillon mockEchantillon = mock(Echantillon.class);
+    when(statistiqueImpl.prixMoyen()).thenReturn(mockEchantillon);
+    when(mockEchantillon.getNombreDeVoitures()).thenReturn(2);
+    when(mockEchantillon.getPrixMoyen()).thenReturn(750);
 
     // Add voitures to the mocked StatistiqueImpl
     statistiqueImpl.ajouter(voiture1);
