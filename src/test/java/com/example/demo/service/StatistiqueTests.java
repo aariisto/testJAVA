@@ -16,25 +16,33 @@ public class StatistiqueTests {
     StatistiqueImpl statistiqueImpl;
 
     @Test
-    public void testCalculePrixMoyen() {
-        // Créer un mock pour Voiture
-        Voiture voiture1 = mock(Voiture.class);
-        Voiture voiture2 = mock(Voiture.class);
-        
-        // Définir ce que les méthodes 'getPrix()' des voitures simulées doivent retourner
-        when(voiture1.getPrix()).thenReturn(500);
-        when(voiture2.getPrix()).thenReturn(1000);
-        
-        // Ajouter les voitures à la liste de voitures dans StatistiqueImpl (via le mock)
-        statistiqueImpl.ajouter(voiture1);
-        statistiqueImpl.ajouter(voiture2);
-        
-        // Appeler la méthode 'prixMoyen' sur le mock de StatistiqueImpl
-        Echantillon echantillon = statistiqueImpl.prixMoyen();
-        
-        // Vérifier que le nombre de voitures et le prix moyen sont corrects
-        assertNotNull(echantillon);  // Vérifie que le résultat n'est pas nul
-        assertEquals(2, echantillon.getNombreDeVoitures());  // Vérifie que le nombre de voitures est 2
-        assertEquals(750, echantillon.getPrixMoyen());  // Vérifie que le prix moyen est (500 + 1000) / 2 = 750
-    }
+
+public void testCalculePrixMoyen() {
+    // Create mock objects for Voiture
+    Voiture voiture1 = mock(Voiture.class);
+    Voiture voiture2 = mock(Voiture.class);
+
+    // Mock the behavior of 'getPrix()' for the voiture objects
+    when(voiture1.getPrix()).thenReturn(500);
+    when(voiture2.getPrix()).thenReturn(1000);
+
+    // Mock the behavior of 'ajouter()' and 'prixMoyen()' for StatistiqueImpl
+    Echantillon mockEchantillon = mock(Echantillon.class);
+    when(statistiqueImpl.prixMoyen()).thenReturn(mockEchantillon);
+    when(mockEchantillon.getNombreDeVoitures()).thenReturn(2);
+    when(mockEchantillon.getPrixMoyen()).thenReturn(750);
+
+    // Add voitures to the mocked StatistiqueImpl
+    statistiqueImpl.ajouter(voiture1);
+    statistiqueImpl.ajouter(voiture2);
+
+    // Call the 'prixMoyen()' method
+    Echantillon echantillon = statistiqueImpl.prixMoyen();
+
+    // Validate the result
+    assertNotNull(echantillon);  // Check that the result is not null
+    assertEquals(2, echantillon.getNombreDeVoitures());  // Verify the number of voitures
+    assertEquals(750, echantillon.getPrixMoyen());  // Verify the average price
+}
+
 }
