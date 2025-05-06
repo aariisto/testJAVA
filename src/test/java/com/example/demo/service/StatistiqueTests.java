@@ -14,7 +14,7 @@ public class StatistiqueTests {
 
 @Test
 public void testCalculePrixMoyen() {
-    StatistiqueImpl statistiqueImpl = mock(StatistiqueImpl.class);
+    
     // Create mock objects for Voiture
     Voiture voiture1 = mock(Voiture.class);
     Voiture voiture2 = mock(Voiture.class);
@@ -23,7 +23,8 @@ public void testCalculePrixMoyen() {
     when(voiture1.getPrix()).thenReturn(50);
     when(voiture2.getPrix()).thenReturn(1000);
 
-
+    // Créer une instance réelle de StatistiqueImpl pour tester la logique réelle
+    StatistiqueImpl statistiqueImpl = new StatistiqueImpl();
 
     // Add voitures to the mocked StatistiqueImpl
     statistiqueImpl.ajouter(voiture1);
