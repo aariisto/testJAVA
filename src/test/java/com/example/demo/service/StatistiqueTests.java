@@ -16,6 +16,7 @@ public class StatistiqueTests {
     StatistiqueImpl statistiqueImpl;
 
     @Test
+
 public void testCalculePrixMoyen() {
     // Create mock objects for Voiture
     Voiture voiture1 = mock(Voiture.class);
@@ -43,4 +44,5 @@ public void testCalculePrixMoyen() {
     assertEquals(2, echantillon.getNombreDeVoitures());  // Verify the number of voitures
     assertEquals(750, echantillon.getPrixMoyen());  // Verify the average price
 }
+
 }
